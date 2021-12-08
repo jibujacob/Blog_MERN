@@ -1,0 +1,69 @@
+ /* Parent  */
+.topbar{
+    width: 100%;
+    height: 50px;
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+/* Parent Segregation to Left and right*/
+.topLeft,.topRight{
+    flex: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* CSS for the Social Media Icons */
+.topIcon{
+    font-size: 20px;
+    margin-right: 10px;
+    color: #444;
+    cursor: pointer;
+}
+
+/* Parent Segregation to Center*/
+.topCenter{
+    flex: 6;
+    
+}
+
+/* CSS for List for the Menu Options */
+.topList{
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* CSS for ListItem values  for the Menu Options */
+.topListItem{
+    margin-right: 20px;
+    font-size: 18px;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+/* CSS for the profile pictures*/
+.topImg{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* CSS for the seach Icons */
+.topSearchIcon{
+    font-size: 18px;
+    color: #666;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+@media only screen and (max-width : 768px) {
+    
+}

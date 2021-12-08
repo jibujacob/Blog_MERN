@@ -1,5 +1,5 @@
 body{
-    overflow: hidden;
+    overflow-x: hidden;
 }
  /* Parent  */
 .topbar{
@@ -10,7 +10,9 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    font-family: 'Josefin Sans', sans-serif;    
+    font-family: 'Josefin Sans', sans-serif;
+    z-index: 100;
+    background-color: white;    
 }
 
 /* Parent Segregation to Left and right*/

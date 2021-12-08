@@ -1,0 +1,43 @@
+.header{
+    margin-top: 60px;
+}
+
+.headerTitles{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Lora', serif;
+    color: #444;
+}
+
+.headerTitleSm{
+    position: absolute;
+    font-size: 20px;
+    top: 18%;
+}
+
+.headerTitleLg{
+    position: absolute;
+    font-size: 100px;
+    top: 20%;
+}
+
+.headerImg{
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    margin-top: 80px;
+}
+
+@media only screen and (max-width : 670px){
+    .header{
+        margin-top: 0px;
+    }
+
+    .headerImg{
+        margin: 0;
+    }
+
+    /* Need to check for solution for overlapping 
+        header title with menu*/
+}

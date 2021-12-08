@@ -1,1 +1,2 @@
-# Blog_MERN
+# Blog Application Using MERN Stack 
+

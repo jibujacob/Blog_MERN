@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import "./Topbar.css"
 
 function Topbar() {
     // Added useState to control the hamberger menu state based on click
     const [hamburgerMenuClicked,setHamburgerMenuClicked] = useState(false)
-
+    const user = false 
     return (
         <div className="topbar">
             <div className="topLeft">
@@ -15,15 +16,37 @@ function Topbar() {
             </div>
             <div className="topCenter">
                 <ul className={hamburgerMenuClicked ? "topList topListMobile-active" : "topList" }>
-                    <li className="topListItem">HOME</li>
-                    <li className="topListItem">ABOUT</li>
-                    <li className="topListItem">CONTACT</li>
-                    <li className="topListItem">WRITE</li>
-                    <li className="topListItem">LOGOUT</li>
+                    <li className="topListItem">
+                        <Link className="link" to="/">HOME</Link>
+                    </li>
+                    <li className="topListItem">
+                        <Link className="link" to="/">ABOUT</Link>
+                    </li>
+                    <li className="topListItem">
+                        <Link className="link" to="/">CONTACT</Link>
+                    </li>
+                    <li className="topListItem">
+                        <Link className="link" to="/write">WRITE</Link>
+                    </li>
+                    <li className="topListItem">
+                        {user && "LOGOUT" }
+                    </li>
                 </ul>
             </div>
             <div className="topRight">
-                <img className="topImg" src="https://images.pexels.com/photos/1858175/pexels-photo-1858175.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="user_profile" />
+                {
+                    user ? 
+                        (<img className="topImg" src="https://images.pexels.com/photos/1858175/pexels-photo-1858175.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="user_profile" />) : 
+                        (<ul className="topList">
+                            <li className="topListItem">
+                                <Link className="link" to="/login">LOGIN</Link>
+                            </li>
+                            <li className="topListItem">
+                                <Link className="link" to="/register">REGISTER</Link>
+                            </li>       
+                         </ul>)
+                }
+                
                 <i className  ="topSearchIcon fas fa-search"></i>
             </div>
             {

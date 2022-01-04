@@ -1,6 +1,9 @@
 # Blog Application Using MERN Stack
 
-    This application is created with the MERN Stack and the application is compatible with different viewports.
+    This application is created with the MERN Stack.
+    Adheres to Responsive Approach
+    Front End Framework:
+        React
     
     UI HomePage:
 <img width="1440" alt="Screenshot 2022-01-04 at 2 09 53 PM" src="https://user-images.githubusercontent.com/81481787/148032488-0a71d6a9-0f74-4680-91e9-61c0cce3bdaa.png">

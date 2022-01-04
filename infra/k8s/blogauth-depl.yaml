@@ -19,11 +19,11 @@ spec:
           env:
             - name: MONGO_URI
               value: "mongodb://blogauth-mongo-srv:27017/blogauth"
-            # - name: JWT_KEY
-            #   valueFrom:
-            #     secretKeyRef:
-            #       name: jwt-secret
-            #       key: JWT_KEY
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: JWT_KEY
 ---
 apiVersion: v1
 kind: Service

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blogcategories-mongo-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blogcategories-mongo
+  template:
+    metadata:
+      labels:
+        app: blogcategories-mongo
+    spec:
+      containers:
+        - name: blogcategories-mongo
+          image: mongo
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: blogcategories-mongo-srv
+spec:
+  selector:
+    app: blogcategories-mongo
+  type: ClusterIP
+  ports:
+    - name: blogcategories-mongo-db
+      protocol: TCP
+      port: 27017
+      targetPort: 27017

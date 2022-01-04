@@ -10,34 +10,27 @@ spec:
     - host: blogjpj.dev
       http:
         paths:
-          # - path: /api/users/?(.*)
-          #   pathType: Prefix
-          #   backend:
-          #     service:
-          #       name: auth-srv
-          #       port:
-          #         number: 5001
-          # - path: /api/tickets/?(.*)
-          #   pathType: Prefix
-          #   backend:
-          #     service:
-          #       name: tickets-srv
-          #       port:
-          #         number: 5001
-          # - path: /api/orders/?(.*)
-          #   pathType: Prefix
-          #   backend:
-          #     service:
-          #       name: orders-srv
-          #       port:
-          #         number: 5001
-          # - path: /api/payments/?(.*)
-          #   pathType: Prefix
-          #   backend:
-          #     service:
-          #       name: payments-srv
-          #       port:
-          #         number: 5001
+          - path: /api/users/?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: blogauth-srv
+                port:
+                  number: 5001
+          - path: /api/posts/?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: blogpost-srv
+                port:
+                  number: 5001
+          - path: /api/categories/?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: blogcategories-srv
+                port:
+                  number: 5001
           - path: /?(.*)
             pathType: Prefix
             backend:

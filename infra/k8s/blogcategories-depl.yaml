@@ -1,0 +1,40 @@
+#Deployment Setup for Auth service
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blogcategories-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blogcategories
+  template:
+    metadata:
+      labels:
+        app: blogcategories
+    spec:
+      containers:
+        - name: blogcategories
+          image: jibujacob/blogcategories
+          env:
+            - name: MONGO_URI
+              value: "mongodb://blogcategories-mongo-srv:27017/blogcategories"
+            # - name: JWT_KEY
+            #   valueFrom:
+            #     secretKeyRef:
+            #       name: jwt-secret
+            #       key: JWT_KEY
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: blogcategories-srv
+spec:
+  selector:
+    app: blogcategories
+  type: ClusterIP
+  ports:
+    - name: blogcategories
+      protocol: TCP
+      port: 5001
+      targetPort: 5001

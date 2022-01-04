@@ -1,0 +1,40 @@
+#Deployment Setup for Auth service
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blogauth-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blogauth
+  template:
+    metadata:
+      labels:
+        app: blogauth
+    spec:
+      containers:
+        - name: blogauth
+          image: jibujacob/blogauth
+          env:
+            - name: MONGO_URI
+              value: "mongodb://blogauth-mongo-srv:27017/blogauth"
+            # - name: JWT_KEY
+            #   valueFrom:
+            #     secretKeyRef:
+            #       name: jwt-secret
+            #       key: JWT_KEY
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: blogauth-srv
+spec:
+  selector:
+    app: blogauth
+  type: ClusterIP
+  ports:
+    - name: blogauth
+      protocol: TCP
+      port: 5001
+      targetPort: 5001

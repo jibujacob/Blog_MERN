@@ -22,3 +22,33 @@ build:
         manual:
           - src: "**/*.*"
             dest: .
+    - image: jibujacob/blogauth
+      context: blogauth
+      docker:
+        dockerfile: Dockerfile
+        # cliFlags:
+        #   - --platform=linux/amd64
+      sync:
+        manual:
+          - src: "src/**/*.ts"
+            dest: .
+    - image: jibujacob/blogpost
+      context: blogpost
+      docker:
+        dockerfile: Dockerfile
+        # cliFlags:
+        #   - --platform=linux/amd64
+      sync:
+        manual:
+          - src: "src/**/*.ts"
+            dest: .
+    - image: jibujacob/blogcategories
+      context: blogcategories
+      docker:
+        dockerfile: Dockerfile
+        # cliFlags:
+        #   - --platform=linux/amd64
+      sync:
+        manual:
+          - src: "src/**/*.ts"
+            dest: .

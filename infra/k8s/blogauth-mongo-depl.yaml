@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blogauth-mongo-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blogauth-mongo
+  template:
+    metadata:
+      labels:
+        app: blogauth-mongo
+    spec:
+      containers:
+        - name: blogauth-mongo
+          image: mongo
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: blogauth-mongo-srv
+spec:
+  selector:
+    app: blogauth-mongo
+  type: ClusterIP
+  ports:
+    - name: blogauth-mongo-db
+      protocol: TCP
+      port: 27017
+      targetPort: 27017

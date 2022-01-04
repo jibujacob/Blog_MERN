@@ -3,7 +3,7 @@ import {app} from "../../app";
 
 it("clears the cookie after sign out" , async () =>{
     await request(app)
-        .post("/api/register")
+        .post("/api/users/register")
         .send({
             email:"test@abc.com",
             username:"test",
@@ -11,7 +11,7 @@ it("clears the cookie after sign out" , async () =>{
         }).expect(201);
     
     const response = await request(app)
-        .post("/api/logout")
+        .post("/api/users/logout")
         .send({})
         .expect(200);
     

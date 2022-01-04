@@ -4,7 +4,7 @@ import { app } from "../../app";
 
 it("returns a 400 code with an invalid email", async () => {
     await request(app)
-            .post("/api/login")
+            .post("/api/users/login")
             .send({
                 email:"abc",
                 password: "perarefef"
@@ -13,12 +13,12 @@ it("returns a 400 code with an invalid email", async () => {
 
 it("returns a 400 code if mandatory attributes are not provided", async () => {
     await request(app)
-            .post("/api/login")
+            .post("/api/users/login")
             .send({
                 password: "perarefef"
             }).expect(400);
     await request(app)
-            .post("/api/login")
+            .post("/api/users/login")
             .send({
                 email:"jibu@abc.com",
             }).expect(400);
@@ -26,13 +26,13 @@ it("returns a 400 code if mandatory attributes are not provided", async () => {
 
 it("returns a 400 code if password lenght is less than 6 or more than 20", async () =>{
     await request(app)
-            .post("/api/login")
+            .post("/api/users/login")
             .send({
                 email:"jibu@abc.com",
                 password: "pera"
             }).expect(400);
     await request(app)
-            .post("/api/login")
+            .post("/api/users/login")
             .send({
                 email:"jibu@abc.com",
                 password: "pefsfsegsegsgfsrsgrsgsrfsrgrsgsgra"
@@ -43,7 +43,7 @@ it("returns a 400 code if password lenght is less than 6 or more than 20", async
 
 it("returns 400 if the login user does not exist",async () =>{
     const response = await request(app)
-            .post("/api/login")
+            .post("/api/users/login")
             .send({
                 email:"jibu@abc.com",
                 password: "perarefef"
@@ -52,7 +52,7 @@ it("returns 400 if the login user does not exist",async () =>{
 
 it("returns 400 if the login user password does not match",async () =>{
     await request(app)
-        .post("/api/register")
+        .post("/api/users/register")
         .send({
             email:"test@abc.com",
             password:"password",
@@ -60,7 +60,7 @@ it("returns 400 if the login user password does not match",async () =>{
         }).expect(201);
 
     await request(app)
-            .post("/api/login")
+            .post("/api/users/login")
             .send({
                 email:"test@abc.com",
                 password:"password1",
@@ -70,7 +70,7 @@ it("returns 400 if the login user password does not match",async () =>{
 
 it("returns 200 if the login user password match",async () =>{
     await request(app)
-        .post("/api/register")
+        .post("/api/users/register")
         .send({
             email:"test@abc.com",
             password:"password",
@@ -78,7 +78,7 @@ it("returns 200 if the login user password match",async () =>{
         }).expect(201);
 
     const response = await request(app)
-            .post("/api/login")
+            .post("/api/users/login")
             .send({
                 email:"test@abc.com",
                 password:"password",

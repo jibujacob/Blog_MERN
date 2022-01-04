@@ -5,7 +5,7 @@ import {Password} from "../../service/password";
 
 it("returns a 400 code with an invalid email", async () => {
     await request(app)
-            .post("/api/register")
+            .post("/api/users/register")
             .send({
                 username:"jibu",
                 email:"abc",
@@ -15,19 +15,19 @@ it("returns a 400 code with an invalid email", async () => {
 
 it("returns a 400 code if mandatory attributes are not provided", async () => {
     await request(app)
-            .post("/api/register")
+            .post("/api/users/register")
             .send({
                 email:"jibu@abc.com",
                 password: "perarefef"
             }).expect(400);
     await request(app)
-            .post("/api/register")
+            .post("/api/users/register")
             .send({
                 username:"jibu",
                 password: "perarefef"
             }).expect(400);
     await request(app)
-            .post("/api/register")
+            .post("/api/users/register")
             .send({
                 username:"jibu",
                 email:"jibu@abc.com",
@@ -36,14 +36,14 @@ it("returns a 400 code if mandatory attributes are not provided", async () => {
 
 it("returns a 400 code if password lenght is less than 6 or more than 20", async () =>{
     await request(app)
-            .post("/api/register")
+            .post("/api/users/register")
             .send({
                 username:"jibu",
                 email:"jibu@abc.com",
                 password: "pera"
             }).expect(400);
     await request(app)
-            .post("/api/register")
+            .post("/api/users/register")
             .send({
                 username:"jibu",
                 email:"jibu@abc.com",
@@ -53,14 +53,14 @@ it("returns a 400 code if password lenght is less than 6 or more than 20", async
 
 it("returns 400 is the username already exists in the system",async () =>{
     await request(app)
-            .post("/api/register")
+            .post("/api/users/register")
             .send({
                 username:"jibu",
                 email:"jibu@abc.com",
                 password: "perarefef"
             });
     await request(app)
-            .post("/api/register")
+            .post("/api/users/register")
             .send({
                 username:"jibu",
                 email:"jibu1@abc.com",
@@ -70,14 +70,14 @@ it("returns 400 is the username already exists in the system",async () =>{
 
 it("returns 400 is the email already exists in the system",async () =>{
     await request(app)
-            .post("/api/register")
+            .post("/api/users/register")
             .send({
                 username:"jibu",
                 email:"jibu@abc.com",
                 password: "perarefef"
             });
     await request(app)
-            .post("/api/register")
+            .post("/api/users/register")
             .send({
                 username:"jibu1",
                 email:"jibu@abc.com",
@@ -90,7 +90,7 @@ it("returns 201 if the registration is success",async () =>{
     expect(users.length).toEqual(0);
     
     const response = await request(app)
-            .post("/api/register")
+            .post("/api/users/register")
             .send({
                 username:"jibu",
                 email:"jibu@abc.com",
@@ -105,7 +105,7 @@ it("password provided is hashed and stored in DB" , async () => {
     const password = "qwerty123";
     const username = "jibu";
     const response = await request(app)
-            .post("/api/register")
+            .post("/api/users/register")
             .send({
                 username,
                 email:"jibu@abc.com",
@@ -119,7 +119,7 @@ it("password provided is hashed and stored in DB" , async () => {
 
 it("sets a cookie after successful register", async () => {
     const response = await request(app)
-        .post("/api/register")
+        .post("/api/users/register")
         .send({
             email:"test@abc.com",
             password:"password",

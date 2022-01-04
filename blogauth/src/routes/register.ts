@@ -8,7 +8,7 @@ import { User } from "../models/user";
 
 const router = express.Router();
 
-router.post("/api/register", [
+router.post("/api/users/register", [
         body("username")
             .trim()
             .not()

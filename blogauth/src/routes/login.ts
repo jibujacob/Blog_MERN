@@ -10,7 +10,7 @@ import { Password } from "../service/password";
 
 const router = express.Router();
 
-router.post("/api/login", [
+router.post("/api/users/login", [
     body("email")
         .trim()
         .isEmail()

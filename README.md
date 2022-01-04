@@ -1,9 +1,22 @@
 # Blog Application Using MERN Stack
 
     This application is created with the MERN Stack.
-    Adheres to Responsive Approach
+        Adheres to Responsive Approach
+    
     Front End Framework:
         React
+        
+    Back End :
+    
+    
+    CI/CD:
+        This application follows the microservices architecture.
+        The below Services are containerized using docker,k8 and skaffold(for development , ease to use with GCP)
+        
+        Git Actions :
+            Used to testing the services before any pull requests
+            Used to deploy the commited and approved changes into the targetted cloud environment
+        
     
     UI HomePage:
 <img width="1440" alt="Screenshot 2022-01-04 at 2 09 53 PM" src="https://user-images.githubusercontent.com/81481787/148032488-0a71d6a9-0f74-4680-91e9-61c0cce3bdaa.png">

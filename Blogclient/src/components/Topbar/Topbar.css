@@ -1,130 +1,90 @@
-body{
-    overflow-x: hidden;
+body {
+  overflow-x: hidden;
 }
- /* Parent  */
-.topbar{
-    width: 100%;
-    height: 50px;
-    position: sticky;
-    top: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    font-family: 'Josefin Sans', sans-serif;
-    z-index: 100;
-    background-color: white;    
+/* Parent  */
+.topbar {
+  width: 100vw;
+  height: 50px;
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-family: "Josefin Sans", sans-serif;
+  z-index: 100;
+  background-color: white;
 }
 
 /* Parent Segregation to Left and right*/
-.topLeft,.topRight{
-   
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.topLeft,
+.topRight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* CSS for the Social Media Icons */
-.topIcon{
-    font-size: 20px;
-    margin-right: 10px;
-    color: #444;
-    cursor: pointer;
+.topIcon {
+  font-size: 20px;
+  margin-right: 10px;
+  color: #444;
+  cursor: pointer;
 }
 
-.topCenter{
-    z-index: 100;
+.topCenter {
+  z-index: 100;
 }
 /* CSS for List for the Menu Options */
-.topList{
-    display: flex;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+.topList {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 /* CSS for ListItem values  for the Menu Options */
-.topListItem{
-    margin-right: 20px;
-    font-size: 18px;
-    font-weight: 300;
-    cursor: pointer;
+.topListItem {
+  margin-right: 20px;
+  font-size: 18px;
+  font-weight: 300;
+  cursor: pointer;
 }
 
 /* CSS for the profile pictures*/
-.topImg{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
+.topImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 /* CSS for the seach Icons */
-.topSearchIcon{
-    font-size: 18px;
-    color: #666;
-    cursor: pointer;
-    margin-left: 15px;
+.topSearchIcon {
+  font-size: 18px;
+  color: #666;
+  cursor: pointer;
+  margin-left: 15px;
 }
 
-/* CSS to control the hamburger menu visibility */
-.topHamburgerMenu{
+@media only screen and (max-width: 750px) {
+  .topLeft {
     display: none;
+  }
+
+  .topRight {
+    display: none;
+  }
+
+  .topCenter {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .topListItem {
+    margin: 10px;
+    font-size: 16px;
+    font-weight: 300;
     cursor: pointer;
-}
-
-/* CSS to create the hamberburger menu*/
-.topHamburgerMenu div{
-    height: 3px;
-    width: 30px;
-    margin: 5px;
-    background-color: black;
-    transition: all 0.3s ease-in;
-}
-
-/* Mobile View*/
-@media only screen and (max-width : 670px) {
-
-    .topRight{
-        display: none;
-    }
-
-    .topHamburgerMenu{
-        display: block;
-    }
-
-    .topList{
-        background-color: rgb(209, 224, 209) ;
-        position: absolute;
-        top:50px;
-        right: 0;
-        left: 0%;
-        height: calc(100vh - 50px);
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;  
-        transform: translateX(100%);
-        transition: transform 0.5s ease-in-out;
-        
-    }
-
-    .topListItem{
-        font-size: 24px;
-        font-weight: 400;
-    }
-    
-    .topListMobile-active{
-        transform: translateX(0%); 
-    }
-
-    .line1.toggle{
-        transform: rotate(-45deg) translate(-5px,6px);
-    }
-    .line2.toggle{
-        opacity: 0;
-    }
-    .line3.toggle{
-        transform: rotate(45deg) translate(-5px,-6px);
-    }
-    
+  }
 }

@@ -1,10 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import "./Topbar.css"
 
 function Topbar() {
-    // Added useState to control the hamberger menu state based on click
-    const [hamburgerMenuClicked,setHamburgerMenuClicked] = useState(false)
     const user = false 
     return (
         <div className="topbar">
@@ -15,7 +13,7 @@ function Topbar() {
                 <i className="topIcon fab fa-instagram-square"></i>
             </div>
             <div className="topCenter">
-                <ul className={hamburgerMenuClicked ? "topList topListMobile-active" : "topList" }>
+                <ul className="topList">
                     <li className="topListItem">
                         <Link className="link" to="/">HOME</Link>
                     </li>
@@ -49,15 +47,6 @@ function Topbar() {
                 
                 <i className  ="topSearchIcon fas fa-search"></i>
             </div>
-            {
-                <div className="topHamburgerMenu" onClick={()=>{
-                    setHamburgerMenuClicked(oldValue => !oldValue)
-                }}>
-                    <div className={hamburgerMenuClicked ? "line1 toggle" : "line1"}></div>
-                    <div className={hamburgerMenuClicked ? "line2 toggle" : "line2"}></div>
-                    <div className={hamburgerMenuClicked ? "line3 toggle" : "line3"}></div>
-                </div>
-            }
         </div>
     )
 }

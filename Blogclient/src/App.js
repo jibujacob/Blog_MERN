@@ -31,10 +31,10 @@ function App() {
           {user ? <Homepage/> : <Login/> } 
         </Route>
         <Route path="/write">
-          {user ? <Write/> : <Register/> } 
+          {!user ? <Write/> : <Register/> } 
         </Route>
         <Route path="/settings"> 
-          {user ? <Settings/> : <Register/> } 
+          {!user ? <Settings/> : <Register/> } 
         </Route>
         <Route path="/post/:postId">
           <Single/> 

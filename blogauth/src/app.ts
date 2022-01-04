@@ -4,6 +4,9 @@ import "express-async-errors";
 import cookieSession from "cookie-session";
 
 import { registerRouter } from "./routes/register";
+import { loginRouter } from "./routes/login";
+import { logoutRouter } from "./routes/logout";
+import { currentUserRouter } from "./routes/current-user";
 
 
 const app = express();
@@ -16,6 +19,9 @@ app.use(cookieSession({
 }));
 
 app.use(registerRouter);
+app.use(loginRouter);
+app.use(logoutRouter);
+app.use(currentUserRouter);
 
 app.all("*",async()=>{
     throw new NotFoundError();

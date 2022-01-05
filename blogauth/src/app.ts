@@ -17,16 +17,13 @@ app.set("trust proxy",true);
 app.use(express.json());
 app.use(cookieSession({
     signed:false,
-    secure: false,
+    secure: false//process.env.NODE_ENV !== "test",
 }));
-
+app.use(currentUser);
 app.use(registerRouter);
 app.use(loginRouter);
 app.use(logoutRouter);
 app.use(currentUserRouter);
-
-app.use(currentUser);
-
 app.use(updateUserRouter);
 app.use(deleteUserRouter);
 

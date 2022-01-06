@@ -1,25 +1,35 @@
-import React, { useState } from 'react'
+import React, { useState,useContext } from 'react'
 import "./Register.css"
 
 import {Link} from "react-router-dom"
 import {useRequest} from '../../hooks/use-request';
 import ErrorBox from '../../components/ErrorBox/ErrorBox';
+import {Context} from "../../context/Context"
 
 
 function Register() {
     const [username,setUsername] = useState("");
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
-    
+    const {dispatch,isFetching} = useContext(Context)
+
     const {doRequest,errors} = useRequest({
         url:"/api/users/register",
         method:"post",
         body:{username,email,password},
-        onSuccess: () => {window.location.replace("/")},
+        onSuccess: (data) => {
+                const {id,createdAt}=data
+                dispatch({type:"REGISTER_SUCCESS",payload:{id,createdAt}});
+                window.location.replace("/")
+            },
+        onError:()=>{
+            dispatch({type:"REGISTER_FAILURE"});
+        }
     });
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        dispatch({type:"REGISTER_START"});
         doRequest();
     }
 
@@ -45,7 +55,9 @@ function Register() {
                     value={password}
                     onChange={(e)=>setPassword(e.target.value)}
                     />
-                <button className="registerButton" type="submit">
+                <button className="registerButton" 
+                    type="submit"
+                    disabled={isFetching}>
                     Register
                 </button>
             </form>

@@ -12,10 +12,26 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import { useContext, useEffect,useState } from "react";
+import { Context } from "./context/Context";
+import axios from "axios";
 
 
 function App() {
-  const user = false;
+  const user = useContext(Context);
+  const [access,setAccess] = useState(false)
+  console.log(user);
+
+  useEffect(()=>{
+    const validateAccess = async()=>{
+      const currentUser = await axios.get("/api/users/currentUser");
+      if(user.user && currentUser.data && (currentUser.data.currentUser.id === user.user.id)){
+        console.log("inside");
+        setAccess(true);
+      }
+    }
+    validateAccess();
+  },[user.user])
 
   return (
     <Router>
@@ -25,16 +41,16 @@ function App() {
           <Homepage/> 
         </Route>
         <Route path="/register">
-          {user ? <Homepage/> : <Register/> }
+          {access ? <Homepage/> : <Register/> }
         </Route>
         <Route path="/login">
-          {user ? <Homepage/> : <Login/> } 
+          {access ? <Homepage/> : <Login/> } 
         </Route>
         <Route path="/write">
-          {user ? <Write/> : <Register/> } 
+          {access ? <Write/> : <Register/> } 
         </Route>
         <Route path="/settings"> 
-          {user ? <Settings/> : <Register/> } 
+          {access ? <Settings/> : <Register/> } 
         </Route>
         <Route path="/post/:postId">
           <Single/> 

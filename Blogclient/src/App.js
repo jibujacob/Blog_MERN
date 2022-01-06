@@ -20,13 +20,11 @@ import axios from "axios";
 function App() {
   const user = useContext(Context);
   const [access,setAccess] = useState(false)
-  console.log(user);
 
   useEffect(()=>{
     const validateAccess = async()=>{
       const currentUser = await axios.get("/api/users/currentUser");
       if(user.user && currentUser.data && (currentUser.data.currentUser.id === user.user.id)){
-        console.log("inside");
         setAccess(true);
       }
     }

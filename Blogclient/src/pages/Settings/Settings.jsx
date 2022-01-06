@@ -16,7 +16,7 @@ function Settings() {
                         <img src="https://images.pexels.com/photos/6685428/pexels-photo-6685428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" 
                             alt="profile_img" />
                         <label htmlFor="fileInput">
-                            <i class="settingsPPIcon far fa-user-circle"></i>
+                            <i className="settingsPPIcon far fa-user-circle"></i>
                         </label>
                         <input type="file" id="fileInput"  style={{display:"none"}}/>
                     </div>

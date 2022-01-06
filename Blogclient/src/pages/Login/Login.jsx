@@ -18,6 +18,7 @@ function Login() {
         body:{email,password},
         onSuccess: (data) => {
             const {id,createdAt}=data
+            console.log({id,createdAt});
             dispatch({type:"LOGIN_SUCCESS",payload:{id,createdAt}});
             window.location.replace("/")
         },

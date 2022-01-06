@@ -11,7 +11,9 @@
 
     Kubernetes Environment Secrets to be setup
         JWT_KEY
-
+        CLOUDINARY_CLOUD_NAME
+        CLOUDINARY_API_KEY
+        CLOUDINARY_API_SECRET
 
     CI/CD:
         This application follows the microservices architecture.

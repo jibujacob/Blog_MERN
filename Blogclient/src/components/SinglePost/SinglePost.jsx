@@ -1,47 +1,48 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import { useLocation,Link } from 'react-router-dom'
 import "./SinglePost.css"
 
 function SinglePost() {
+    //Fetching the userid from the url
+    const location = useLocation();
+    const postId = location.pathname.split("/")[2]
+    const [post,setPost] = useState({});
+    const [postowner,setPostOwner] = useState({});
+
+    useEffect(()=>{
+        const fetchPostandUsername = async () =>{
+            const postRes = await axios.get(`/api/posts/${postId}`);
+            setPost(postRes.data);
+            const userRes = await axios.post("/api/users/fetchusername",{userId:postRes.data.userId});
+            setPostOwner(userRes.data);
+        }
+        fetchPostandUsername();
+    },[postId]);
+
     return (
         <div className="singlePost">
             <div className="singlePostWrapper">
                 <img className="singlePostImg"
-                    src="https://images.pexels.com/photos/6685428/pexels-photo-6685428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" 
+                    src={post.photo}
                     alt="post_Img" />
                 <h1 className="singlePostTitle">
-                    Lorem ipsum dolor sit amet
+                    {post.title}
                     <div className="singlePostEdit">
                         <i className="singlePostIcon far fa-edit"></i>
                         <i className="singlePostIcon far fa-trash-alt"></i>
                     </div>
                 </h1>
                 <div className="singlePostInfo">
-                    <span className="singlePostAuthor">
-                        Author: <strong>Jibu</strong>
-                    </span>
-                    <span className="singlePostDate">1 hour ago</span>
+                    <Link to={`/?userId=${post.userId}`} className='link'>
+                        <span className="singlePostAuthor">
+                            Author: <strong>{postowner.username}</strong>
+                        </span>    
+                    </Link>
+                    <span className="singlePostDate">{new Date(post.createdAt).toDateString()}</span>
                 </div>
                 <p className="singlePostDescription">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                    Aut natus, dolorum fuga aliquid aspernatur, debitis 
-                    quisquam architecto ea dolor quasi obcaecati iste quo! 
-                    Nobis et quam nulla impedit fuga. Explicabo.
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                    Aut natus, dolorum fuga aliquid aspernatur, debitis 
-                    quisquam architecto ea dolor quasi obcaecati iste quo! 
-                    Nobis et quam nulla impedit fuga. Explicabo.
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                    Aut natus, dolorum fuga aliquid aspernatur, debitis 
-                    quisquam architecto ea dolor quasi obcaecati iste quo! 
-                    Nobis et quam nulla impedit fuga. Explicabo.
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                    Aut natus, dolorum fuga aliquid aspernatur, debitis 
-                    quisquam architecto ea dolor quasi obcaecati iste quo! 
-                    Nobis et quam nulla impedit fuga. Explicabo.
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                    Aut natus, dolorum fuga aliquid aspernatur, debitis 
-                    quisquam architecto ea dolor quasi obcaecati iste quo! 
-                    Nobis et quam nulla impedit fuga. Explicabo.
+                    {post.description}
                 </p>
                 
             </div>

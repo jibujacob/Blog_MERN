@@ -7,7 +7,6 @@ import { Categories } from "../models/categories";
 const router = express.Router();
 
 router.get("/api/categories",
-        requireAuth,
         async (req:Request,res:Response) => {
 
 

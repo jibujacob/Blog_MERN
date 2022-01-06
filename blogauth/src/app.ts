@@ -10,6 +10,7 @@ import { currentUserRouter } from "./routes/current-user";
 import { updateUserRouter } from "./routes/update";
 import { deleteUserRouter } from "./routes/delete";
 import { uploadProfilePic } from "./routes/upload";
+import { fetchusernameRouter } from "./routes/fetchusername";
 
 
 
@@ -31,7 +32,7 @@ app.use(currentUserRouter);
 app.use(updateUserRouter);
 app.use(deleteUserRouter);
 app.use(uploadProfilePic);
-
+app.use(fetchusernameRouter);
 app.all("*",async()=>{
     throw new NotFoundError();
 });

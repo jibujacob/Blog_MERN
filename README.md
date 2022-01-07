@@ -3,10 +3,13 @@
     This application is created with the MERN Stack.
         Adheres to Responsive Approach
 
-    Front End Framework:
-        React
-
-    Back End :
+    Features Implemented:
+        1.User should be able to register,login and logout to the application.
+            Implemented the above user story using jsonwebtoken and cookie sessions.
+        2.User should be able to create/edit/delete posts only if they are are logged in to the application.
+        3.User should be able to see the homepage and check out the posts without any user authetication.
+        4.User should be able to upload post picture and update the contents of the post.
+        5.User should be able to update their profile.
 
 
     Kubernetes Environment Secrets to be setup

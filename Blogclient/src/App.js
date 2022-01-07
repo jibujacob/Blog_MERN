@@ -16,7 +16,6 @@ import { useContext, useEffect,useState } from "react";
 import { Context } from "./context/Context";
 import axios from "axios";
 
-
 function App() {
   const user = useContext(Context);
   const [access,setAccess] = useState(false)
@@ -24,12 +23,14 @@ function App() {
   useEffect(()=>{
     const validateAccess = async()=>{
       const currentUser = await axios.get("/api/users/currentUser");
-      if(user.user && currentUser.data && (currentUser.data.currentUser.id === user.user.id)){
+      if(user.user && currentUser.data.currentUser && (currentUser.data.currentUser.id === user.user.id)){
         setAccess(true);
       }
     }
     validateAccess();
+
   },[user.user])
+
 
   return (
     <Router>

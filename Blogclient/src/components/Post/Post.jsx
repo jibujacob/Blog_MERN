@@ -7,9 +7,9 @@ function Post({post}) {
 
     return (
         <div className="post">
-            <img className="postImg"
+            {post.photo && <img className="postImg"
                 src={post.photo}
-                alt="post_img" />
+                alt="post_img" />}
             <div className="postInfo">
                 <div className="postCategories">
                     {post.categories.map((category,index) => {

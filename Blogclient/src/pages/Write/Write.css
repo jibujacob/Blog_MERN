@@ -47,6 +47,17 @@
   outline: none;
 }
 
+.writeCategoryInput {
+  font-size: 15px;
+  border: none;
+  padding: 0 20px;
+  width: 70vw;
+}
+
+.writeCategoryInput:focus {
+  outline: none;
+}
+
 .writeText {
   font-size: 20px;
   height: 100vh;

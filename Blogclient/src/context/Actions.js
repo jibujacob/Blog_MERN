@@ -23,3 +23,7 @@ export const RegisterSuccess = (user) => ({
 export const RegisterFailure = () =>({
     type:"REGISTER_FAILURE"
 })
+
+export const Logout = () =>({
+    type:"LOGOUT"
+})

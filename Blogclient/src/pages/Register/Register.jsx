@@ -18,8 +18,8 @@ function Register() {
         method:"post",
         body:{username,email,password},
         onSuccess: (data) => {
-                const {id,createdAt}=data
-                dispatch({type:"REGISTER_SUCCESS",payload:{id,createdAt}});
+            const {id,createdAt,profilePic}=data
+                dispatch({type:"REGISTER_SUCCESS",payload:{id,createdAt,profilePic}});
                 window.location.replace("/")
             },
         onError:()=>{

@@ -21,7 +21,7 @@ router.post("/api/users/register", [
         body("password")
             .trim()
             .isLength({min:6,max:20})
-            .withMessage("Please provide password")
+            .withMessage("Please provide valid password of minimum 6 characters")
     ],
     validateRequest,
     async (req:Request,res:Response)=>{

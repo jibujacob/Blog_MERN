@@ -4,12 +4,12 @@ import axios from "axios";
 export const useRequest = ({url,method,body,onSuccess,onError}) => {
     const [errors,setErrors] = useState(null);
 
-    const doRequest = async () => {
+    const doRequest = async (props) => {
         setErrors(null)
         try {
             const response = await axios[method](url,
                 {
-                    ...body
+                    ...body,...props
                 });
 
             if(onSuccess){

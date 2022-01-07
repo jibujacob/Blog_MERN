@@ -1,10 +1,13 @@
 .singlePost {
   flex: 9;
+  width: 100%;
 }
 
 .singlePostWrapper {
   padding: 20px;
-  padding-right: 0;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .singlePostImg {
@@ -12,6 +15,19 @@
   height: 300px;
   border-radius: 5px;
   object-fit: cover;
+}
+
+.singlePostTitleInput {
+  margin: 10px;
+  font-family: "Lora", serif;
+  font-size: 28px;
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid lightgray;
+}
+
+.singlePostTitleInput:focus {
+  outline: none;
 }
 
 .singlePostTitle {
@@ -48,6 +64,17 @@
   color: #b39656;
 }
 
+.singlePostDescriptionInput {
+  font-size: 18px;
+  color: #666;
+  line-height: 25px;
+  border: none;
+}
+
+.singlePostDescriptionInput:focus {
+  outline: none;
+}
+
 .singlePostDescription {
   font-size: 18px;
   color: #666;
@@ -58,4 +85,16 @@
   margin-left: 20px;
   font-size: 30px;
   font-weight: 600;
+}
+
+.singlePostButton {
+  width: 100px;
+  border: none;
+  background-color: teal;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  align-self: flex-end;
+  margin-top: 10px;
 }

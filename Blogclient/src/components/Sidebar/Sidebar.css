@@ -40,10 +40,13 @@
 
 .sidebarList {
   margin-bottom: 30px;
+  padding: 0;
   list-style: none;
 }
 
 .sidebarListItem {
+  margin: 0;
+  padding: 0;
   display: inline-block;
   width: 50%;
   margin-top: 15px;

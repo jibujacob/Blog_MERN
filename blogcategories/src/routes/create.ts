@@ -18,12 +18,12 @@ router.post("/api/categories",
         async (req:Request,res:Response) => {
     const {name} = req.body;
 
-    const existingName = await Categories.findOne({name});
+    const existingName = await Categories.findOne({name:name.toLowerCase()});
     if(existingName){
-        throw new BadRequestError("Category in use");
+        return res.status(StatusCodes.OK).send({});
     }
 
-    const category = Categories.build({name});
+    const category = Categories.build({name:name.toLowerCase()});
     await category.save();
 
     res.status(StatusCodes.OK).send(category);

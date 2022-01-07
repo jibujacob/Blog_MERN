@@ -57,6 +57,7 @@ body {
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
+  cursor: pointer;
 }
 
 /* CSS for the seach Icons */
@@ -69,10 +70,6 @@ body {
 
 @media only screen and (max-width: 750px) {
   .topLeft {
-    display: none;
-  }
-
-  .topRight {
     display: none;
   }
 

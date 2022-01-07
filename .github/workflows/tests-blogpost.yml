@@ -3,7 +3,7 @@ name: tests-blogpost
 on:
   pull_request:
     paths:
-      - "blogauth/**"
+      - "blogpost/**"
 
 jobs:
   build:

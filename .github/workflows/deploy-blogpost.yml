@@ -10,8 +10,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: cd blogpost && docker build -t jibujacob/blogpost .
+      - name: checkout code
+        - uses: actions/checkout@v2
+      # Added for Testing
+      - name: install buildx
+        id: buildx
+          uses: crazy-max/ghaction-docker-buildx@v1
+          with:
+            version: latest
+      - name: build the image
+      - run: cd blogpost && docker buildx build -t jibujacob/blogpost --platform linux/amd64 .
       - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
         env:
           DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}

@@ -11,6 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      # Added for Testing
+      - name: install buildx
+        id: buildx
+          uses: crazy-max/ghaction-docker-buildx@v1
+          with:
+            version: latest
       - uses: digitalocean/action-doctl@v2
         with:
           token: ${{secrets.DIGITALOCEAN_ACCESS_TOKEN}}

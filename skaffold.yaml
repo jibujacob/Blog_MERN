@@ -16,8 +16,8 @@ build:
       context: blogclient
       docker:
         dockerfile: Dockerfile
-        # cliFlags:
-        #   - --platform=linux/amd64
+        cliFlags:
+          - --platform=linux/amd64
       sync:
         manual:
           - src: "**/*.*"
@@ -26,8 +26,8 @@ build:
       context: blogauth
       docker:
         dockerfile: Dockerfile
-        # cliFlags:
-        #   - --platform=linux/amd64
+        cliFlags:
+          - --platform=linux/amd64
       sync:
         manual:
           - src: "src/**/*.ts"
@@ -36,8 +36,8 @@ build:
       context: blogpost
       docker:
         dockerfile: Dockerfile
-        # cliFlags:
-        #   - --platform=linux/amd64
+        cliFlags:
+          - --platform=linux/amd64
       sync:
         manual:
           - src: "src/**/*.ts"
@@ -46,8 +46,8 @@ build:
       context: blogcategories
       docker:
         dockerfile: Dockerfile
-        # cliFlags:
-        #   - --platform=linux/amd64
+        cliFlags:
+          - --platform=linux/amd64
       sync:
         manual:
           - src: "src/**/*.ts"

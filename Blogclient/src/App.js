@@ -30,7 +30,6 @@ function App() {
 
   },[user.user])
 
-
   return (
     <Router>
       <Topbar/>

@@ -19,7 +19,7 @@ jobs:
           with:
             version: latest
       - name: build the image
-      - run: cd blogauth && docker buildx build -t jibujacob/blogauth --platform linux/amd64 .
+      - run: cd blogauth && docker buildx build --push --tag jibujacob/blogauth --platform linux/amd64 .
       - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
         env:
           DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}

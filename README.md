@@ -12,7 +12,7 @@
         5.User should be able to update their profile.
 
 
-    Kubernetes Environment Secrets to be setup
+    Kubernetes Environment Secrets to be setup before deployment
         JWT_KEY
         CLOUDINARY_CLOUD_NAME
         CLOUDINARY_API_KEY

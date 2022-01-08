@@ -87,7 +87,8 @@ function Write() {
                             className="writeInput"
                             value={title}
                             onChange={e => setTitle(e.target.value)}
-                            autoFocus={true} />
+                            autoFocus={true}
+                            required />
                             
                 </div>
                 <div className="writeFormGroup">
@@ -103,7 +104,8 @@ function Write() {
                         type="text"
                         value={description}
                         onChange={e => setDescription(e.target.value)}
-                        className="writeText writeInput"></textarea>
+                        className="writeText writeInput"
+                        required></textarea>
                 </div>
                 <button className="writeSubmit"
                     type='submit'>

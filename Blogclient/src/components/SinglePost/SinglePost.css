@@ -69,6 +69,7 @@
   color: #666;
   line-height: 25px;
   border: none;
+  height: 100vh;
 }
 
 .singlePostDescriptionInput:focus {

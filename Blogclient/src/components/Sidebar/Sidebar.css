@@ -40,8 +40,10 @@
 
 .sidebarList {
   margin-bottom: 30px;
+  width: 100px;
   padding: 0;
   list-style: none;
+  margin-left: 5px;
 }
 
 .sidebarListItem {
@@ -52,6 +54,7 @@
   margin-top: 15px;
   cursor: pointer;
   text-transform: capitalize;
+  text-align: center;
 }
 
 .sidebarSocial {

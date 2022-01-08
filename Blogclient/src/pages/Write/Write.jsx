@@ -67,7 +67,7 @@ function Write() {
                 src={URL.createObjectURL(file)} 
                 alt="uploaded_img" />    
             }
-            <div>
+            <div className="writeUploadErrorSection">
                 {uploading && <span style={{color:"blue", margin:"10px"}}>Publishing...</span>}
                 {errors && <ErrorBox errors={errors}/>}
             </div>

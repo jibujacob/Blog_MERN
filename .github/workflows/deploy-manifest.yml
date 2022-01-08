@@ -18,7 +18,7 @@ jobs:
         id: buildx
         uses: crazy-max/ghaction-docker-buildx@v1
         with:
-          version: latest
+          buildx-version: latest
       - uses: digitalocean/action-doctl@v2
         with:
           token: ${{secrets.DIGITALOCEAN_ACCESS_TOKEN}}

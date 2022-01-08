@@ -17,13 +17,13 @@ jobs:
         id: buildx
         uses: crazy-max/ghaction-docker-buildx@v1
         with:
-          version: latest
-      - run: cd blogpost && docker buildx build --push --tag jibujacob/blogpost --platform linux/amd64 .
+          buildx-version: latest
       - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
         env:
           DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
           DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
-      - run: docker push jibujacob/blogpost
+      - run: cd blogpost && docker buildx build --push --tag jibujacob/blogpost --platform linux/amd64 .
+      # - run: docker push jibujacob/blogpost
       - uses: digitalocean/action-doctl@v2
         with:
           token: ${{secrets.DIGITALOCEAN_ACCESS_TOKEN}}

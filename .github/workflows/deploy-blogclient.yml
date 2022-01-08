@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "blogclient/**"
+      - "blogclient/src/**"
 jobs:
   build:
     runs-on: ubuntu-latest

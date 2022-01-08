@@ -6,7 +6,6 @@ import Settings from "./pages/Settings/Settings";
 import Single from "./pages/Single/Single";
 import Write from "./pages/Write/Write";
 
-
 import {
   BrowserRouter as Router,
   Switch,

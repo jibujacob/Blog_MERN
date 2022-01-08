@@ -18,7 +18,7 @@ router.post("/api/users/fetchusername",
     
     const {userId} = req.body;
 
-    const user = await User.findOne({userId});
+    const user = await User.findOne({_id:userId});
     if(!user){
         throw new BadRequestError("Invalid Credentials");
     }

@@ -21,7 +21,7 @@ jobs:
         env:
           DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
           DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
-      - run: cd blogclient && docker buildx build --push --tag jibujacob/blogclient --platform linux/amd64 .
+      - run: cd Blogclient && docker buildx build --push --tag jibujacob/blogclient --platform linux/amd64 .
       # - run: docker push jibujacob/blogclient
       - uses: digitalocean/action-doctl@v2
         with:

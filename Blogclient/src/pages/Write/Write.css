@@ -17,6 +17,9 @@
   width: 100vw;
 }
 
+.writeUploadErrorSection {
+  margin-left: 50px;
+}
 .writeFormGroup {
   margin-left: 50px;
   display: flex;

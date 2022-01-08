@@ -6,30 +6,32 @@ import {Link} from "react-router-dom"
 function Post({post}) {
 
     return (
-        <div className="post">
-            {post.photo && <img className="postImg"
-                src={post.photo}
-                alt="post_img" />}
-            <div className="postInfo">
-                <div className="postCategories">
-                    {post.categories.map((category,index) => {
-                        return <span key ={index} className="postCategory">{category}</span>
-                    })}
-                    {/* <span className="postCategory">Music</span>
-                    <span className="postCategory">Life</span> */}
+        <Link to={`/post/${post.id}`} className='link'>
+            <div className="post">
+                {post.photo && <img className="postImg"
+                    src={post.photo}
+                    alt="post_img" />}
+                <div className="postInfo">
+                    <div className="postCategories">
+                        {post.categories.map((category,index) => {
+                            return <span key ={index} className="postCategory">{category}</span>
+                        })}
+                        {/* <span className="postCategory">Music</span>
+                        <span className="postCategory">Life</span> */}
+                    </div>
+                    {/* <Link to={`/post/${post.id}`} className='link'> */}
+                        <span className="postTitle">
+                            {post.title}    
+                        </span>
+                    {/* </Link> */}
+                    <hr />
+                    <span className="postDate">1 hour ago</span>
                 </div>
-                <Link to={`/post/${post.id}`} className='link'>
-                    <span className="postTitle">
-                        {post.title}    
-                    </span>
-                </Link>
-                <hr />
-                <span className="postDate">1 hour ago</span>
+                <p className="postDescription">
+                    {post.description} 
+                </p>
             </div>
-            <p className="postDescription">
-                {post.description} 
-            </p>
-        </div>
+        </Link>
     )
 }
 

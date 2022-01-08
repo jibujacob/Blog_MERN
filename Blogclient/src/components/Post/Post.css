@@ -1,6 +1,9 @@
 .post {
   width: 385px;
   margin: 0px 25px 40px 25px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  padding: 5px;
+  border-radius: 10px;
 }
 
 .postImg {
@@ -49,6 +52,7 @@
   color: #444;
   line-height: 24px;
   margin-top: 15px;
+  padding: 10px;
 
   overflow: hidden;
   text-overflow: ellipsis;

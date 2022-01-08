@@ -1,4 +1,4 @@
-# dependencies
+# dependencies to be removed
 /node_modules
 # testing
 /coverage

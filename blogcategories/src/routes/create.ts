@@ -26,7 +26,7 @@ router.post("/api/categories",
     const category = Categories.build({name:name.toLowerCase()});
     await category.save();
 
-    res.status(StatusCodes.OK).send(category);
+    res.status(StatusCodes.CREATED).send(category);
 })
 
 export {router as createCategories}

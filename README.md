@@ -1,6 +1,7 @@
 # Blog Application Using MERN Stack
+## SITE: www.test-app-jpj-prod.xyz (Since cost is invovled ,the site may be not available , please drop me a mail if live demo is needed)
     
-## Aproach
+## Approach
     This application is developed with the MERN Stack and implemented with a microservices architecture
     Implemented with TDD Approach
         

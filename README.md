@@ -1,4 +1,5 @@
-# Blog Application Using MERN Stack
+# Blog Web Application using Microservices
+
 ## SITE: www.test-app-jpj-prod.xyz (Since cost is invovled ,the site may be not available , please drop me a mail if live demo is needed)
     
 ## Approach
